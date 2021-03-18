@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t ginokarro/steamcmd-dock:latest .
+
+after_success:
+  - "curl -X POST $DOCKERHUB_TRIGGER_URL"
